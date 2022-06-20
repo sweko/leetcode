@@ -15,5 +15,10 @@ export interface Test<TInput, TResult> {
     argument: TInput;
 }
 
+export interface ClassArgument<TInit, TCall> {
+    initialization: TInit,
+    calls: TCall[]
+}
+
 export type NumHash<T> = { [key: number]: T };
 export type Hash<T> = { [key: string]: T };
