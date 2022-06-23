@@ -1,5 +1,4 @@
 import { Problem } from "../model";
-import { paramWrapper } from "../utils";
 
 export const problem: Problem<string[], number> = {
     name: 'Short Encoding of Words',

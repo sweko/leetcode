@@ -19,7 +19,7 @@ async function main() {
         console.log("finished");
 
     } catch (e) {
-        // console.error(e);
+        console.error(e);
         console.error(chalk.redBright(`Problem ${id} not found`));
     }
 };
