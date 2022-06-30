@@ -33,9 +33,7 @@ function minMoves2(nums: number[]): number {
     // sort the array and find the median
     const data = nums.slice().sort((a, b) => a - b);
     const len = nums.length;
-    const average = (len % 2 === 1) 
-        ? data[Math.floor(len/2)]
-        : Math.floor((data[len/2 - 1] + data[len/2])/2);
+    const average = data[Math.floor(len/2)];
 
     let result = 0;
     for (const num of nums) {
