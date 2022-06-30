@@ -1,5 +1,3 @@
-// https://leetcode.com/problems/longest-palindromic-substring/
-
 import { Problem } from "../model";
 
 export const problem: Problem<string, string> = {
