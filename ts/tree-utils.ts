@@ -9,7 +9,7 @@ export class TreeNode {
     }
 }
 
-const arrayToTree = (array: (number|null)[]): TreeNode | null => {
+export const arrayToTree = (array: (number|null)[]): TreeNode | null => {
       if (array.length === 0) {
         return null;
       }
