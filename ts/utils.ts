@@ -22,7 +22,7 @@ export const classWrapper = <TClass, TInit, TCall extends any[], TResult>(func: 
     const results: TResult[] = [];
     for (const call of input.calls) {
         const method = (object[methodName] as unknown as (...args: TCall) => TResult);
-        const result = method(...call);
+        const result = method.apply(object, call);
         results.push(result);
     }
     return results;
