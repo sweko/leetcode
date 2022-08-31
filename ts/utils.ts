@@ -29,3 +29,10 @@ export const classWrapper = <TClass, TInit, TCall extends any[], TResult>(func: 
 }
 
 export const paramWrapper = (func: (...args:any[]) => any) => (args: any[]) => func(...args);
+
+
+export const voidWrapper = (func: (...args:any[]) => void, argIndex: number = 0) => (...args: any[]) => {
+    func(...args);
+    const result = args[argIndex];
+    return result;
+}
