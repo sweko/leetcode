@@ -53,7 +53,7 @@ export const copyTree = (node: TreeNode): TreeNode => {
     return new TreeNode(node.val, left, right);
 }
 
-export const treeToArray = (root: TreeNode) : (number|null)[] => {
+export const treeToArray = (root: TreeNode | null) : (number|null)[] => {
   const queue: (TreeNode| null)[] = [];
   queue.push(root);
   const result: (number|null)[] = [];
