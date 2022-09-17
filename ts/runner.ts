@@ -8,7 +8,7 @@ async function main() {
     try {
         const problem = require(`./problems/${id}.ts`).problem as Problem;
 
-        for (const test of problem.tests) {
+        for (const test of problem.tests.filter(t => t.id)) {
             const start = performance.now();
             const actual = problem.solution(test.argument);
             const end = performance.now();
