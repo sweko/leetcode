@@ -4,3 +4,8 @@ export const readTestCase = <T>(problem: number, index: number, processor: (inpu
     const contents = readFileSync(`./data/${problem}/${index}.in`, "utf8");
     return processor(contents);
 }
+
+export const readOutputJson = <T>(problem: number, index: number) => {
+    const contents = readFileSync(`./data/${problem}/${index}.out`, "utf8");
+    return JSON.parse(contents) as T;
+}
