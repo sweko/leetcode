@@ -1,21 +1,11 @@
 import { Problem } from "../model";
-import { TreeNode, arrayToTree, treeToArray } from "../tree-utils";
-
-const wrapProblemParams = (func: (nums: number[]) => TreeNode | null) => {
-    return (nums: number[]) => {
-        const result = func(nums);
-        if (result === null) {
-            return [];
-        }
-        return treeToArray(result)
-    }
-}
+import { TreeNode, wrapTreeResult } from "../tree-utils";
 
 export const problem: Problem<number[], (number|null)[]> = {
     name: 'Binary Trees With Factors',
     id: 823,
     url: 'https://leetcode.com/problems/binary-trees-with-factors/',
-    solution: wrapProblemParams(sortedArrayToBST),
+    solution: wrapTreeResult(sortedArrayToBST),
     tests: [
         {
             id: 1,

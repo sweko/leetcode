@@ -1,20 +1,11 @@
 import { Problem } from "../model";
-import { arrayToTree, TreeNode } from "../tree-utils";
-import { paramWrapper } from "../utils";
-
-const wrapProblemParams = (func: (node: TreeNode | null) => boolean) => {
-    return (tree: (number|null)[]) => {
-        const node = arrayToTree(tree);
-        const result = func(node);
-        return result;
-    }
-}
+import { TreeNode, wrapTree } from "../tree-utils";
 
 export const problem: Problem<(number|null)[], boolean> = {
     name: 'Validate Binary Search Tree',
     id: 98,
     url: 'https://leetcode.com/problems/validate-binary-search-tree/',
-    solution: wrapProblemParams(isValidBST),
+    solution: wrapTree(isValidBST),
     tests: [
         {
             id: 1,

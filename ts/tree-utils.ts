@@ -73,3 +73,13 @@ export const treeToArray = (root: TreeNode | null) : (number|null)[] => {
   }
   return result;
 }
+
+export const wrapTreeResult = (func: (...args: any[]) => TreeNode | null) => {
+  return (...args: any[]) => {
+      const result = func(...args);
+      if (result === null) {
+          return [];
+      }
+      return treeToArray(result)
+  }
+}

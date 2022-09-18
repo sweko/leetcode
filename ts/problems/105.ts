@@ -1,8 +1,8 @@
 import { Problem } from "../model";
-import { TreeNode } from "../tree-utils";
+import { TreeNode, treeToArray } from "../tree-utils";
 import { paramWrapper } from "../utils";
 
-export const problem: Problem<[number[], number[]], string> = {
+export const problem: Problem<[number[], number[]], (number | null)[]> = {
     name: 'Construct Binary Tree from Preorder and Inorder Traversal',
     id: 105,
     url: 'https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/',
@@ -11,12 +11,12 @@ export const problem: Problem<[number[], number[]], string> = {
         {
             id: 1,
             argument:  [[3,9,20,15,7], [9,3,15,20,7]],
-            result: new TreeNode(0)
+            result: [3,9,20,null,null,15,7]
         },
         {
             id: 2,
             argument: [[-1], [-1]],
-            result: new TreeNode(0)
+            result: [-1]
         }
     ]
 }
