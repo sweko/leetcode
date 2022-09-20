@@ -7,6 +7,7 @@ export interface Problem<TInput = any, TResult = any> {
     url: URL<string>;
     tests: Test<TInput, TResult>[];
     solution: (argument: TInput) => TResult;
+    customCompare?: (actual: TResult, expected: TResult) => boolean;
 }
 
 export interface Test<TInput, TResult> {

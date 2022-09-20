@@ -1,12 +1,14 @@
 import { performance } from 'perf_hooks';
 import { Problem } from './model';
-import { compare } from './utils';
+import { defaultCompare } from './utils';
 
 async function main() {
     const [id] = process.argv.slice(2)
     const chalk = new (await import('chalk')).Chalk();
     try {
         const problem = require(`./problems/${id}.ts`).problem as Problem;
+
+        const compare = problem.customCompare ?? defaultCompare;
 
         for (const test of problem.tests.filter(t => t.id)) {
             const start = performance.now();

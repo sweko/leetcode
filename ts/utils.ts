@@ -1,16 +1,31 @@
 import { ClassArgument, Hash } from "./model";
 
-export const compare = <T>(actual: T, expected: T): boolean => {
+export const defaultCompare = <T>(actual: T, expected: T): boolean => {
     // array handling
     if (Array.isArray(actual)) {
         if (Array.isArray(expected)) {
-            return actual.length === expected.length && actual.every((a, i) => compare(a, expected[i]));
+            return actual.length === expected.length && actual.every((a, i) => defaultCompare(a, expected[i]));
         }
         return false;
     }
 
     // primitives and everything else
     return actual === expected;
+}
+
+export const arrayIgnoreOrderCompare = <T>(actual: T[], expected: T[]): boolean => {
+    if (Array.isArray(actual)) {
+        if (Array.isArray(expected)) {
+            if (actual.length !== expected.length) {
+                return false;
+            }
+            const actualValue = actual.slice().sort();
+            const expectedValue = expected.slice().sort();
+            return defaultCompare(actualValue, expectedValue);
+        }
+        return false;
+    }
+    return false;
 }
 
 export const toValuesArray = <T>(hash: Hash<T>): T[] => Object.keys(hash).map(key => hash[key]);
