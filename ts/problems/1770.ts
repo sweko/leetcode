@@ -2,7 +2,7 @@ import { Problem } from "../model";
 import { paramWrapper } from "../utils";
 
 export const problem: Problem<[number[], number[]], number> = {
-    name: ' Maximum Score from Performing Multiplication Operations',
+    name: 'Maximum Score from Performing Multiplication Operations',
     id: 1770,
     url: 'https://leetcode.com/problems/maximum-score-from-performing-multiplication-operations/',
     solution: paramWrapper(maximumScore),

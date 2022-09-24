@@ -1,5 +1,4 @@
 import { Problem } from "../model";
-import { arrayToTree, TreeNode} from "../tree-utils";
 import { paramWrapper } from "../utils";
 
 export const problem: Problem<[number, number], number> = {
