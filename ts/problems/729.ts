@@ -1,5 +1,5 @@
 import { ClassArgument, Problem } from "../model";
-import { classWrapper } from "../utils";
+import { classWrapperSingleMethod } from "../utils";
 
 interface Interval {
     start: number;
@@ -27,7 +27,7 @@ export const problem: Problem<ClassArgument<undefined, [number, number]>, boolea
     name: 'My Calendar I',
     id: 729,
     url: 'https://leetcode.com/problems/my-calendar-i/',
-    solution: classWrapper(MyCalendar, "book"),
+    solution: classWrapperSingleMethod(MyCalendar, "book"),
     tests: [
         {
             id: 1,

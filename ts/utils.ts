@@ -32,7 +32,18 @@ export const toValuesArray = <T>(hash: Hash<T>): T[] => Object.keys(hash).map(ke
 export const toKeysArray = <T>(hash: Hash<T>): string[] => Object.keys(hash);
 
 
-export const classWrapper = <TClass, TInit, TCall extends any[], TResult>(func: new(param: TInit) => TClass, methodName: keyof TClass) => (input: ClassArgument<TInit, TCall>) => {
+export const classWrapperSingleMethod = <TClass, TInit, TCall extends any[], TResult>(func: new(_: TInit) => TClass, methodName: keyof TClass) => (input: ClassArgument<TInit, TCall>) => {
+    const object = new func(input.initialization);
+    const results: TResult[] = [];
+    for (const call of input.calls) {
+        const method = (object[methodName] as unknown as (...args: TCall) => TResult);
+        const result = method.apply(object, call);
+        results.push(result);
+    }
+    return results;
+}
+
+export const classWrapperMultiMethod = <TClass, TInit, TCall extends any[], TResult>(func: new(_: TInit) => TClass, methodName: keyof TClass) => (input: ClassArgument<TInit, TCall>) => {
     const object = new func(input.initialization);
     const results: TResult[] = [];
     for (const call of input.calls) {

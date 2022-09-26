@@ -1,5 +1,5 @@
 import { ClassArgument, Problem } from "../model";
-import { classWrapper } from "../utils";
+import { classWrapperSingleMethod } from "../utils";
 
 class WordFilter {
     constructor(words: string[]) {
@@ -18,7 +18,7 @@ export const problem: Problem<ClassArgument<string[], [string, string]>, number[
     name: 'Prefix and Suffix Search',
     id: 745,
     url: 'https://leetcode.com/problems/prefix-and-suffix-search/',
-    solution: classWrapper(WordFilter, "f"),
+    solution: classWrapperSingleMethod(WordFilter, "f"),
     tests: [
         {
             id: 1,
