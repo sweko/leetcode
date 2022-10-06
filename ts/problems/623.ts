@@ -1,9 +1,13 @@
 import { Problem } from "../model";
-import { arrayToTree, TreeNode, treeToArray, wrapTree } from "../tree-utils";
+import { arrayToTree, TreeNode, treeToArray } from "../tree-utils";
 
-const wrapper = (func:(root: TreeNode | null, val: number, depth: number) => TreeNode | null) => 
+const wrapper = (func:(root: TreeNode, val: number, depth: number) => TreeNode | null) => 
     ([root, val, depth]:[(number|null)[], number, number]) => {
-        const result = func(arrayToTree(root), val, depth);
+        const tree = arrayToTree(root);
+        if (tree === null) {
+            return [];
+        }
+        const result = func(tree, val, depth);
         return treeToArray(result);
     }
     
