@@ -47,6 +47,8 @@ export const wrapTree = <T>(func: (root: TreeNode | null) => T) => {
     }
 }
 
+export const wrapTreeWithParam = <TParam, TResult>(func:(root: TreeNode | null, param: TParam) => TResult) => ([root, param]:[(number|null)[], TParam]) => func(arrayToTree(root), param);
+
 export const copyTree = (node: TreeNode): TreeNode => {
     const left = node.left ? copyTree(node.left) : null;
     const right = node.right ? copyTree(node.right) : null;
