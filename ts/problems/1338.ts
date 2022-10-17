@@ -1,5 +1,4 @@
 import { Problem } from "../model";
-import { paramWrapper } from "../utils";
 
 export const problem: Problem<number[], number> = {
     name: 'Reduce Array Size to The Half',
