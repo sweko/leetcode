@@ -1,6 +1,5 @@
 import { Problem } from "../model";
 import { arrayToTree, TreeNode } from "../tree-utils";
-import { paramWrapper } from "../utils";
 
 const wrapProblemParams = (func: (root: TreeNode | null, p: TreeNode | null, q: TreeNode | null) => TreeNode | null) => {
     return (params: [(number | null)[], number, number]) => {
