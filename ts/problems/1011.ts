@@ -28,7 +28,7 @@ export const problem: Problem<[number[], number], number> = {
 }
 
 function shipWithinDays(weights: number[], days: number): number {
-    console.log("----");
+    // console.log("----");
 
     let min = weights.reduce((a, b) => Math.max(a, b), 0);
     let max = weights.reduce((a, b) => a + b, 0);
@@ -46,7 +46,7 @@ function shipWithinDays(weights: number[], days: number): number {
 };
 
 function canShip(weights: number[], days: number, capacity: number): boolean {
-    console.log(`capacity: ${capacity}`)
+    // console.log(`capacity: ${capacity}`)
     let currentDay = 1;
     let currentWeight = 0;
 
