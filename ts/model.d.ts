@@ -3,7 +3,7 @@ export type URL<T> = string;
 
 export interface Problem<TInput = any, TResult = any> {
     name: string;
-    id: number;
+    id: number | string;
     url: URL<string>;
     tests: Test<TInput, TResult>[];
     solution: (argument: TInput) => TResult;
